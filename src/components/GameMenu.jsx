@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
             return {
                 minWidth: `${menuWidth}px`,
                 left: '50%',
-                top: `${(height * zoom) / 2}px`,
+                top: `${((height - 100) * zoom) / 2}px`,
             };
         }
 
@@ -46,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
     menuItemsWrapper: {
         textAlign: 'center',
         padding: 0,
+    },
+    gameTitle: {
+        textAlign: 'center',
+        padding: 0,
+        color: '#ff2222',
     },
     menuItem: ({ zoom }) => ({
         cursor: 'pointer',
@@ -122,6 +127,9 @@ const GameMenu = () => {
     return (
         <div className={classNames(classes.menuWrapper, classes.menuPositionWrapper)}>
             <ul className={classes.menuItemsWrapper}>
+                <li>
+                    <h1 className={classes.gameTitle}>CYRO10 REVENGE</h1>
+                </li>
                 {items.map((item, index) => {
                     const [key, variables] = getTranslationVariables(item);
 

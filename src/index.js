@@ -18,7 +18,7 @@ const theme = createTheme();
 ReactDOM.render(
     <Provider store={store}>
         <Helmet>
-            <title>My Phaser Game</title>
+            <title>Cyro10 REVENGE</title>
         </Helmet>
         <ThemeProvider theme={theme}>
             <Game />

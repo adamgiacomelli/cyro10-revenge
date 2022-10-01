@@ -28,7 +28,7 @@ export default class MainMenuScene extends Scene {
     create() {
         const dispatch = getDispatch();
 
-        dispatch(setMenuItemsAction(['start_game', 'exit']));
+        dispatch(setMenuItemsAction(['start_game']));
         dispatch(setMenuOnSelectAction((key, item) => {
             if (key === 'start_game') {
                 handleStartGameSelected();

@@ -91,10 +91,10 @@ const Game = () => {
 
         const phaserGame = new Phaser.Game({
             type: Phaser.AUTO,
-            title: 'some-game-title',
+            title: 'cyro10-REVENGE',
             parent: 'game-content',
             orientation: Phaser.Scale.LANDSCAPE,
-            localStorageName: 'some-game-title',
+            localStorageName: 'cyro10-REVENGE',
             width,
             height,
             zoom,
