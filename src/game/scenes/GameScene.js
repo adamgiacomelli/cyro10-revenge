@@ -21,6 +21,8 @@ import { getDispatch } from '../../utils/utils';
 import setGameCameraSizeUpdateCallbackAction from '../../redux/actions/game/setGameCameraSizeUpdateCallbackAction';
 
 export default class GameScene extends Scene {
+    hud = {}
+
     constructor() {
         super('GameScene');
     }
@@ -59,10 +61,15 @@ export default class GameScene extends Scene {
 
         // Handle characters movements
         handleCreateCharactersMovements(this);
+
+        this.hud.text = this.add.text(this.heroSprite.x, this.heroSprite.y, 'Mjavc', { font: '"Press Start 2P"' });
+        this.hud.text.setDepth(100)
     }
 
     update(time, delta) {
         handleHeroMovement(this);
         this.heroSprite.update(time, delta);
+
+        this.hud.text.setPosition(this.heroSprite.x, this.heroSprite.y);
     }
 }
