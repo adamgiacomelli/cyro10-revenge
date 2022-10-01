@@ -42,10 +42,10 @@ export default class MainMenuScene extends Scene {
         const handleStartGameSelected = () => Promise.all([
             dispatch(setMenuItemsAction([])),
             dispatch(setMenuOnSelectAction(null)),
-            dispatch(setMapKeyAction('cyro')), // sample_indoor
+            dispatch(setMapKeyAction('cyro')),
             dispatch(setHeroFacingDirectionAction(DOWN_DIRECTION)),
-            dispatch(setHeroInitialPositionAction({ x: 30, y: 42 })),
-            dispatch(setHeroPreviousPositionAction({ x: 30, y: 42 })),
+            dispatch(setHeroInitialPositionAction({ x: 13, y: 11 })),
+            dispatch(setHeroPreviousPositionAction({ x: 12, y: 11 })),
             dispatch(setHeroInitialFrameAction(
                 IDLE_FRAME.replace('position', DOWN_DIRECTION)
             )),
@@ -55,7 +55,6 @@ export default class MainMenuScene extends Scene {
                 atlases: ['hero'],
                 images: [],
                 mapKey: 'cyro',
-                // mapKey: 'sample_indoor',
             });
         });
     }
