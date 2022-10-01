@@ -1,0 +1,40 @@
+{
+    "columns": 64,
+    "firstgid": 4097,
+    "image": "space_2.png",
+    "imageheight": 1024,
+    "imagewidth": 1024,
+    "margin": 0,
+    "name": "space_2",
+    "spacing": 0,
+    "tilecount": 4096,
+    "tileheight": 16,
+    "tiles": [
+        {
+            "animation": [
+                {
+                    "duration": 300,
+                    "tileid": 2512
+                },
+                {
+                    "duration": 400,
+                    "tileid": 2518
+                },
+                {
+                    "duration": 200,
+                    "tileid": 2513
+                },
+                {
+                    "duration": 600,
+                    "tileid": 2524
+                },
+                {
+                    "duration": 700,
+                    "tileid": 2527
+                }
+            ],
+            "id": 2511
+        }
+    ],
+    "tilewidth": 16
+}
