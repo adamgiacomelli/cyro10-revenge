@@ -25,7 +25,7 @@
     "description": "Space worm from Nelron faimily bite the chunk of the hull close to power generator and damaged it.",
     "modifiers": [
       {
-        "electric": -0.2
+        "power": -0.2
       }
     ]
   },
@@ -112,13 +112,13 @@
     "description": "A cat like species of Gattiris pierced power generator with it's sharp claws. Fix it quick!",
     "modifiers": [
       {
-        "electric": -0.1
+        "power": -0.1
       },
       {
-        "electric": -0.1
+        "power": -0.1
       },
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },
@@ -127,7 +127,7 @@
     "description": "Space cloud damaged power core due to high pitched sonic vibrations.",
     "modifiers": [
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },
@@ -154,10 +154,10 @@
     "description": "Short circuit in power generator core. Power is fading fast.",
     "modifiers": [
       {
-        "electric": -0.1
+        "power": -0.1
       },
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },
@@ -199,10 +199,10 @@
     "description": "Dangerous space worms with infrared vision got attracted with heat produced by power generator core and made a dent in a hull and damaged power core.",
     "modifiers": [
       {
-        "electric": -0.1
+        "power": -0.1
       },
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },
@@ -220,7 +220,7 @@
     "description": "Elo-gex species of electric space bacteria somehow got to powercore and damaged it. ",
     "modifiers": [
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },
@@ -253,7 +253,7 @@
     "description": "Giant blackhole nearly sucked spaceship in and despite not being even near the center violent shaking of spaceship still damaged oxygen pipe system and maybe also other systems.",
     "modifiers": [
       {
-        "electric": -0.1,
+        "power": -0.1,
         "oxygen": -0.1,
         "fuel": -0.2
       }
@@ -314,7 +314,7 @@
     "description": "Ur'sotus'Lo rodent-like parrot got attracted with it's own reflection from spaceship and damaged power generator in the process.",
     "modifiers": [
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },
@@ -371,7 +371,7 @@
     "description": "Hard shell turtle Feregex bit the chunk of the hull of spaceship, while trying to impress it's mate during annual mating. Major damage!",
     "modifiers": [
       {
-        "electric": -0.1,
+        "power": -0.1,
         "oxygen": -0.1,
         "fuel": -0.2
       }
@@ -421,7 +421,7 @@
         "fuel": -0.1
       },
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },
@@ -430,7 +430,7 @@
     "description": "Despite going extinct 127 years ago Odorala fish, managed to get electrocuted by powergenerator.",
     "modifiers": [
       {
-        "electric": -0.1
+        "power": -0.1
       }
     ]
   },

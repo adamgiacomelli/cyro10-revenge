@@ -1,12 +1,11 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-classes-per-file */
 import { Input } from 'phaser';
-import { INTRO_TEXT } from '../assets/text/intro_text';
 import { BROKEN_OBJECT_SPRITE_NAME, TILE_HEIGHT, TILE_WIDTH } from '../constants';
 import { createInteractiveGameObject } from './utils';
 
-const START_TIME = 32527384553000;
-const DECIMALS = 2;
+import { INTRO_TEXT } from '../assets/text/intro_text';
+import EVENTS_LIST from '../assets/text/events.json';
 
 class Modifier {
     damage = 0
@@ -101,8 +100,9 @@ class Modifier {
     }
 }
 
+const INTRO_PHASE = 'INTRO_PHASE'; 
 export default class GameState {
-  hud = {};
+  progress = INTRO_PHASE
 
   resourceState = {
       power: 98.21,
@@ -143,96 +143,35 @@ export default class GameState {
           arr[idx] = new Modifier(scene, part);
       });
 
-      this.showDialog(scene, INTRO_TEXT);
-
       setInterval(() => {
           if (this.timeleft === 0) {
               this.timeleft = 11;
 
-              this.modifiers.oxygen[0].break(scene, 3);
+              this.createIncident(scene);
           }
           this.timeleft -= 1;
       }, 1000);
   }
 
+  createIncident(scene) {
+      const random = Math.floor(Math.random() * EVENTS_LIST.length());
+      const event = EVENTS_LIST[random];
+
+      scene.events.emit('showDialog', [`${event.title}\n\n${event.description}`]);
+
+      this.modifiers.oxygen[0].break(scene, 3);
+  }
+
   setupUi(scene) {
       this.uiScene = scene.scene.get('UiScene');
-      this.uiScene.scene.setActive(true);
-
-      this.hud.timedate = this.uiScene.add.text(5, 5, this.getTimeText(), {
-          font: '"Press Start 2P"',
-      });
-
-      this.hud.resources = this.uiScene.add.text(5, 35, this.getHudText(), {
-          font: '"Press Start 2P"',
-      });
-
-      this.hud.timerText = this.uiScene.add.text(TILE_WIDTH * 10, 5, `Next problem in ${10}`, {
-          font: '"Press Start 2P"',
-          color: '#FF0000',
-      });
-
-      const { game } = scene.sys;
-      this.box = this.uiScene.add.rectangle(
-          game.scale.gameSize.width / 2,
-          game.scale.gameSize.height / 2,
-          500, 400,
-          '0x000000'
-      )
-          .setOrigin(0.5)
-          .setStrokeStyle(4, '0xFFFFFF');
-
-      const text = '';
-      this.boxText = this.uiScene.add.text(
-          (game.scale.gameSize.width / 2) - 250 + 10,
-          (game.scale.gameSize.height / 2) - 200 + 10,
-          text, {
-              font: '12px Courier New',
-          }
-      );
-      this.boxText.setDepth(11);
-
-      this.box.setVisible(false);
-      this.boxText.setVisible(false);
-  }
-
-  showDialog(scene, textArray) {
-      this.box.setVisible(true);
-      this.boxText.setVisible(true);
-
-      let index = 0;
-      this.boxText.setText(textArray[index]);
-
-      scene.input.keyboard.on('keydown-SPACE', (event) => {
-          index += 1;
-          if (textArray.length > index) {
-              this.boxText.setText(textArray[index]);
-          } else {
-              this.box.setVisible(false);
-              this.boxText.setVisible(false);
-          }
-      });
-  }
-
-  getTimeText = (time) => {
-      const timetxt = `Stardate ${new Date(time + START_TIME).toLocaleString()}`;
-      return timetxt;
-  };
-
-  getHudText() {
-      const { power, oxygen, food, fuel } = this.resourceState;
-      return `Power: ${power.toFixed(
-          DECIMALS
-      )}%\nOxygen: ${oxygen.toFixed(DECIMALS)}%\nFood: ${food.toFixed(
-          DECIMALS
-      )}%\nFuel: ${fuel.toFixed(DECIMALS)}%`;
+      this.uiScene.scene.start();
   }
 
   update(scene, time, delta) {
-      this.resourceState.fuel -= 0.00001 * delta;
-      this.hud.resources.setText(this.getHudText());
-      this.hud.timedate.setText(this.getTimeText(time));
+      if (this.progress === INTRO_PHASE) {
+          scene.events.emit('showDialog', INTRO_TEXT);
+      }
 
-      this.hud.timerText.setText(`Next problem in ${this.timeleft}`);
+      this.resourceState.fuel -= 0.00001 * delta;
   }
 }
