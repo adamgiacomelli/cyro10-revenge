@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-classes-per-file */
 import { Input } from 'phaser';
+import { INTRO_TEXT } from '../assets/text/intro_text';
 import { BROKEN_OBJECT_SPRITE_NAME, TILE_HEIGHT, TILE_WIDTH } from '../constants';
 import { createInteractiveGameObject } from './utils';
 
@@ -120,21 +121,7 @@ export default class GameState {
   timeleft = 10;
 
   constructor(scene) {
-      this.uiScene = scene.scene.get('UiScene');
-      this.uiScene.scene.setActive(true);
-
-      this.hud.timedate = this.uiScene.add.text(5, 5, this.getTimeText(), {
-          font: '"Press Start 2P"',
-      });
-
-      this.hud.resources = this.uiScene.add.text(5, 35, this.getHudText(), {
-          font: '"Press Start 2P"',
-      });
-
-      this.hud.timerText = this.uiScene.add.text(TILE_WIDTH * 15, 5, `Next problem in ${10}`, {
-          font: 'bold 14px "Press Start 2P"',
-          color: '#FF0000',
-      });
+      this.setupUi(scene);
 
       this.resourceState = {
           power: 100,
@@ -156,6 +143,8 @@ export default class GameState {
           arr[idx] = new Modifier(scene, part);
       });
 
+      this.showDialog(scene, INTRO_TEXT);
+
       setInterval(() => {
           if (this.timeleft === 0) {
               this.timeleft = 11;
@@ -164,6 +153,65 @@ export default class GameState {
           }
           this.timeleft -= 1;
       }, 1000);
+  }
+
+  setupUi(scene) {
+      this.uiScene = scene.scene.get('UiScene');
+      this.uiScene.scene.setActive(true);
+
+      this.hud.timedate = this.uiScene.add.text(5, 5, this.getTimeText(), {
+          font: '"Press Start 2P"',
+      });
+
+      this.hud.resources = this.uiScene.add.text(5, 35, this.getHudText(), {
+          font: '"Press Start 2P"',
+      });
+
+      this.hud.timerText = this.uiScene.add.text(TILE_WIDTH * 10, 5, `Next problem in ${10}`, {
+          font: '"Press Start 2P"',
+          color: '#FF0000',
+      });
+
+      const { game } = scene.sys;
+      this.box = this.uiScene.add.rectangle(
+          game.scale.gameSize.width / 2,
+          game.scale.gameSize.height / 2,
+          500, 400,
+          '0x000000'
+      )
+          .setOrigin(0.5)
+          .setStrokeStyle(4, '0xFFFFFF');
+
+      const text = '';
+      this.boxText = this.uiScene.add.text(
+          (game.scale.gameSize.width / 2) - 250 + 10,
+          (game.scale.gameSize.height / 2) - 200 + 10,
+          text, {
+              font: '12px Courier New',
+          }
+      );
+      this.boxText.setDepth(11);
+
+      this.box.setVisible(false);
+      this.boxText.setVisible(false);
+  }
+
+  showDialog(scene, textArray) {
+      this.box.setVisible(true);
+      this.boxText.setVisible(true);
+
+      let index = 0;
+      this.boxText.setText(textArray[index]);
+
+      scene.input.keyboard.on('keydown-SPACE', (event) => {
+          index += 1;
+          if (textArray.length > index) {
+              this.boxText.setText(textArray[index]);
+          } else {
+              this.box.setVisible(false);
+              this.boxText.setVisible(false);
+          }
+      });
   }
 
   getTimeText = (time) => {

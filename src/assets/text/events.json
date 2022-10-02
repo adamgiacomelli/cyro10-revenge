@@ -20,7 +20,7 @@
   ]
 }
 {
-  "title": "Oxygen synthesisator damaged!",
+  "title": "Oxygen synthesisor damaged!",
   "description": "Giant insect pierced hull powerful sonic waves and damaged Oxygen synthesisator!",
   "modifiers": [
     {"oxygen": -0.1,},
@@ -29,7 +29,7 @@
   ]
 }
 {
-  "title": "Full cell storage damaged!",
+  "title": "Fuel cell storage damaged!",
   "description": "Space dinosaur-like crustacians Olk'ok got entagled in one of the thrusters with its razor-sharp leg-hair and damaged one of the thrusters.",
   "modifiers": [
     {"fuel": -0.2},
