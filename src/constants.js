@@ -1,11 +1,11 @@
 export const TILE_WIDTH = 16;
 export const TILE_HEIGHT = 16;
 
-export const MIN_GAME_WIDTH = 50 * TILE_WIDTH; // 400
-export const MIN_GAME_HEIGHT = 28 * TILE_HEIGHT; // 224
+export const MIN_GAME_WIDTH = 55 * TILE_WIDTH; // 400
+export const MIN_GAME_HEIGHT = 32 * TILE_HEIGHT; // 224
 
-export const RESIZE_THRESHOLD = 500;
-export const RE_RESIZE_THRESHOLD = 10;
+export const RESIZE_THRESHOLD = 2500;
+export const RE_RESIZE_THRESHOLD = 45;
 
 export const HERO_SPRITE_NAME = 'hero';
 export const ENEMY_SPRITE_NAME = 'enemy';

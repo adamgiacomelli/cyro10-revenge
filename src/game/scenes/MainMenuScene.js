@@ -42,10 +42,10 @@ export default class MainMenuScene extends Scene {
         const handleStartGameSelected = () => Promise.all([
             dispatch(setMenuItemsAction([])),
             dispatch(setMenuOnSelectAction(null)),
-            dispatch(setMapKeyAction('cyro')),
+            dispatch(setMapKeyAction('cyro_2')),
             dispatch(setHeroFacingDirectionAction(DOWN_DIRECTION)),
-            dispatch(setHeroInitialPositionAction({ x: 13, y: 11 })),
-            dispatch(setHeroPreviousPositionAction({ x: 12, y: 11 })),
+            dispatch(setHeroInitialPositionAction({ x: 20, y: 15 })),
+            dispatch(setHeroPreviousPositionAction({ x: 20, y: 15 })),
             dispatch(setHeroInitialFrameAction(
                 IDLE_FRAME.replace('position', DOWN_DIRECTION)
             )),
@@ -54,7 +54,7 @@ export default class MainMenuScene extends Scene {
                 // fonts: ['"Press Start 2P"'],
                 atlases: ['hero'],
                 images: [],
-                mapKey: 'cyro',
+                mapKey: 'cyro_2',
             });
         });
     }
