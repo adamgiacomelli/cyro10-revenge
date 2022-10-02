@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable max-classes-per-file */
 import { Input } from 'phaser';
 import { BROKEN_OBJECT_SPRITE_NAME, TILE_HEIGHT, TILE_WIDTH } from '../constants';
@@ -6,30 +7,33 @@ import { createInteractiveGameObject } from './utils';
 const START_TIME = 32527384553000;
 const DECIMALS = 2;
 
-const locations = [
-    { x: 12, y: 12 },
-    { x: 11, y: 12 },
-    { x: 10, y: 12 },
-    { x: 9, y: 12 },
-    { x: 8, y: 12 },
-    { x: 7, y: 12 },
-    { x: 12, y: 10 },
-    { x: 12, y: 11 },
-];
-
 class Modifier {
-    repairNeeded = 1
-    constructor(scene, position, repairNeeded) {
-        this.repairNeeded = repairNeeded ?? 1;
-        this.createBrokenObject(scene, position);
+    damage = 0
+    type = null
+    position = { x: 0, y: 0 }
+
+    constructor(scene, position, type, initDamage = 0) {
+        this.type = type;
+        this.position = position;
+
+        this.break(scene, initDamage);
     }
 
     repair() {
-        this.repairNeeded -= 1;
+        this.damage -= 1;
+        this.damageLabel?.setText(this.damage);
+    }
+
+    break(scene, degree) {
+        if (degree > 0 && this.damage === 0) {
+            this.createBrokenObject(scene, this.position);
+        }
+        this.damage += degree;
+        this.damageLabel?.setText(this.damage);
     }
 
     isFixed() {
-        return this.repairNeeded <= 0;
+        return this.damage <= 0;
     }
 
     createBrokenObject(scene, position) {
@@ -42,6 +46,13 @@ class Modifier {
             .setOrigin(0, 0)
             .setName(name)
             .setDepth(10);
+
+        this.damageLabel = scene.add.text(x, y, this.damage, {
+            font: '12px "Press Start 2P"',
+            align: 'center',
+        });
+        this.damageLabel.setStroke('#000000', 3);
+        this.damageLabel.setDepth(11);
 
         const animationKey = `${BROKEN_OBJECT_SPRITE_NAME}_idle`;
         if (!scene.anims.exists(animationKey)) {
@@ -81,6 +92,7 @@ class Modifier {
                         customCollider.destroy();
                         brokenObject.setVisible(false);
                         brokenObject.destroy();
+                        this.damageLabel.destroy();
                     }
                 }
             }
@@ -92,13 +104,18 @@ export default class GameState {
   hud = {};
 
   resourceState = {
-      electric: 98.21,
+      power: 98.21,
       oxygen: 99.1,
       food: 99.02,
       fuel: 83.02,
   };
 
-  modifiers = [];
+  modifiers = {
+      oxygen: [{ x: 32, y: 17 }, { x: 32, y: 20 }],
+      power: [{ x: 5, y: 18 }],
+      fuel: [{ x: 17, y: 24 }, { x: 18, y: 24 }, { x: 18, y: 23 }, { x: 18, y: 24 }],
+      food: [{ x: 11, y: 9 }, { x: 12, y: 9 }, { x: 13, y: 9 }, { x: 11, y: 10 }, { x: 12, y: 10 }, { x: 13, y: 10 }],
+  };
 
   timeleft = 10;
 
@@ -116,20 +133,30 @@ export default class GameState {
       });
 
       this.resourceState = {
-          electric: 100,
+          power: 100,
           oxygen: 100,
           food: 100,
           fuel: 100,
       };
 
+      this.modifiers.oxygen.forEach((part, idx, arr) => {
+          arr[idx] = new Modifier(scene, part);
+      });
+      this.modifiers.food.forEach((part, idx, arr) => {
+          arr[idx] = new Modifier(scene, part);
+      });
+      this.modifiers.fuel.forEach((part, idx, arr) => {
+          arr[idx] = new Modifier(scene, part);
+      });
+      this.modifiers.power.forEach((part, idx, arr) => {
+          arr[idx] = new Modifier(scene, part);
+      });
+
       setInterval(() => {
           if (this.timeleft === 0) {
               this.timeleft = 11;
 
-              const random = Math.floor(Math.random() * locations.length);
-              this.modifiers.push(new Modifier(scene, locations[random], 3));
-              const random2 = Math.floor(Math.random() * locations.length);
-              this.modifiers.push(new Modifier(scene, locations[random2], 3));
+              this.modifiers.oxygen[0].break(scene, 3);
           }
           this.timeleft -= 1;
       }, 1000);
@@ -141,8 +168,8 @@ export default class GameState {
   };
 
   getHudText() {
-      const { electric, oxygen, food, fuel } = this.resourceState;
-      return `Electricity: ${electric.toFixed(
+      const { power, oxygen, food, fuel } = this.resourceState;
+      return `Power: ${power.toFixed(
           DECIMALS
       )}%\nOxygen: ${oxygen.toFixed(DECIMALS)}%\nFood: ${food.toFixed(
           DECIMALS
