@@ -41,6 +41,7 @@ import {
     ENEMY_SPRITE_NAME,
     HEART_SPRITE_NAME,
     CRYSTAL_SPRITE_NAME,
+    BROKEN_OBJECT_SPRITE_NAME,
 } from '../../constants';
 
 export default class LoadAssetsScene extends Scene {
@@ -137,6 +138,23 @@ export default class LoadAssetsScene extends Scene {
             const tilesets = mapJson.tilesets.map((tileset) =>
                 // the string will be something like "../tilesets/village.json" or "../tilesets/village.png"
                 tileset.source?.split('/').pop().split('.')[0] || tileset.image?.split('/').pop().split('.')[0]);
+            const spriteName = BROKEN_OBJECT_SPRITE_NAME;
+
+            if (
+                isGeneratedAtlasFileAvailable(`${spriteName}.json`)
+    && isGeneratedAtlasFileAvailable(`${spriteName}.png`)
+&& !loadedAtlases.includes(spriteName)
+            ) {
+                // eslint-disable-next-line no-await-in-loop
+                const { default: jsonPath } =
+        await import(`../../assets/atlases/generated/${spriteName}.json`);
+                // eslint-disable-next-line no-await-in-loop
+                const { default: imagePath } =
+        await import(`!!file-loader!../../assets/atlases/generated/${spriteName}.png`);
+
+                dispatch(addLoadedAtlasAction(spriteName));
+                await asyncLoader(this.load.atlas(spriteName, imagePath, jsonPath));
+            }
 
             // Load objects assets
             const objectLayers = mapJson.layers.filter((layer) => layer.type === 'objectgroup');

@@ -1,0 +1,61 @@
+{
+  "textures": [
+    {
+      "image": "broken_object.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 12,
+        "h": 24
+      },
+      "scale": 1,
+      "frames": [
+        {
+          "filename": "broken_object_idle_01",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 16,
+            "h": 16
+          },
+          "spriteSourceSize": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "frame": {
+            "x": 0,
+            "y": 0,
+            "w": 12,
+            "h": 12
+          }
+        },
+        {
+          "filename": "broken_object_idle_02",
+          "rotated": false,
+          "trimmed": true,
+          "sourceSize": {
+            "w": 16,
+            "h": 16
+          },
+          "spriteSourceSize": {
+            "x": 4,
+            "y": 2,
+            "w": 8,
+            "h": 12
+          },
+          "frame": {
+            "x": 0,
+            "y": 12,
+            "w": 8,
+            "h": 12
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "app": "",
+    "version": "0.3.4"
+  }
+}

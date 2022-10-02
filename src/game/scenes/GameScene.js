@@ -19,15 +19,10 @@ import { getDispatch } from '../../utils/utils';
 
 // Actions
 import setGameCameraSizeUpdateCallbackAction from '../../redux/actions/game/setGameCameraSizeUpdateCallbackAction';
+import GameState from '../../utils/gameState';
 
 export default class GameScene extends Scene {
-  hud = {};
-  resourceState = {
-      electric: 98.21,
-      oxygen: 99.1,
-      food: 99.02,
-      fuel: 83.02,
-  };
+  gameState = null;
 
   constructor() {
       super('GameScene');
@@ -70,22 +65,13 @@ export default class GameScene extends Scene {
       // Handle characters movements
       handleCreateCharactersMovements(this);
 
-      this.hud.text = this.add.text(0, 0, this.getHudText(), {
-          font: '"Press Start 2P"',
-      });
-      this.hud.text.setDepth(10);
-  }
-
-  getHudText() {
-      const { electric, oxygen, food, fuel } = this.resourceState;
-      return `Electricity: ${electric}%\nOxygen: ${oxygen}%\nFood: ${food}%\nFuel: ${fuel}%`;
+      this.gameState = new GameState(this);
   }
 
   update(time, delta) {
       handleHeroMovement(this);
       this.heroSprite.update(time, delta);
 
-      this.resourceState.fuel -= 0.0000001 * delta;
-      this.hud.text.setText(this.getHudText());
+      this.gameState.update(this, time, delta);
   }
 }

@@ -13,6 +13,7 @@ export const COIN_SPRITE_NAME = 'coin';
 export const HEART_SPRITE_NAME = 'heart';
 export const CRYSTAL_SPRITE_NAME = 'crystal';
 export const KEY_SPRITE_NAME = 'key';
+export const BROKEN_OBJECT_SPRITE_NAME = 'broken_object';
 
 // Game Objects Tiled IDs
 export const ENEMY = 1;
