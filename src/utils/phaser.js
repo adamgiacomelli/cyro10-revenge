@@ -8,7 +8,7 @@ export const calculateGameSize = (
 ) => {
     const widthScale = Math.floor(window.innerWidth / width);
     const heightScale = Math.floor(window.innerHeight / height);
-    const zoom = Math.min(widthScale, heightScale)*1.8 || 1;
+    const zoom = Math.min(widthScale, heightScale) || 1;
 
     const newWidth = Math.floor(window.innerWidth / tileWidth) * tileWidth / zoom;
     const newHeight = Math.floor(window.innerHeight / tileHeight) * tileHeight / zoom;
