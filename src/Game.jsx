@@ -41,6 +41,7 @@ import { selectDialogMessages } from './redux/selectors/selectDialog';
 import { selectMenuItems } from './redux/selectors/selectMenu';
 import { selectTexts } from './redux/selectors/selectText';
 import { selectGameCameraSizeUpdateCallback, selectGameLocale } from './redux/selectors/selectGameData';
+import UiScene from './game/scenes/UiScene';
 
 const Game = () => {
     const isDevelopment = process?.env?.NODE_ENV !== 'production';
@@ -109,6 +110,7 @@ const Game = () => {
                 LoadAssetsScene,
                 GameScene,
                 MainMenuScene,
+                UiScene,
             ],
             physics: {
                 default: 'arcade',

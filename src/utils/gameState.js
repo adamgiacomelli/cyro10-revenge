@@ -120,15 +120,19 @@ export default class GameState {
   timeleft = 10;
 
   constructor(scene) {
-      this.hud.timedate = scene.add.text(0, 0, this.getTimeText(), {
-          font: '"Press Start 2P"',
-      });
-      this.hud.resources = scene.add.text(0, 30, this.getHudText(), {
+      this.uiScene = scene.scene.get('UiScene');
+      this.uiScene.scene.setActive(true);
+
+      this.hud.timedate = this.uiScene.add.text(5, 5, this.getTimeText(), {
           font: '"Press Start 2P"',
       });
 
-      this.hud.timerText = scene.add.text(TILE_WIDTH * 15, 0, `Next problem in ${10}`, {
+      this.hud.resources = this.uiScene.add.text(5, 35, this.getHudText(), {
           font: '"Press Start 2P"',
+      });
+
+      this.hud.timerText = this.uiScene.add.text(TILE_WIDTH * 15, 5, `Next problem in ${10}`, {
+          font: 'bold 14px "Press Start 2P"',
           color: '#FF0000',
       });
 

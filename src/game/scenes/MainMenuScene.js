@@ -44,7 +44,7 @@ export default class MainMenuScene extends Scene {
             dispatch(setMenuOnSelectAction(null)),
             dispatch(setMapKeyAction('cyro_2')),
             dispatch(setHeroFacingDirectionAction(DOWN_DIRECTION)),
-            dispatch(setHeroInitialPositionAction({ x: 20, y: 15 })),
+            dispatch(setHeroInitialPositionAction({ x: 30, y: 15 })),
             dispatch(setHeroPreviousPositionAction({ x: 20, y: 15 })),
             dispatch(setHeroInitialFrameAction(
                 IDLE_FRAME.replace('position', DOWN_DIRECTION)
