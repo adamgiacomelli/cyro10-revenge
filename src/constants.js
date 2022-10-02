@@ -1,8 +1,8 @@
 export const TILE_WIDTH = 16;
 export const TILE_HEIGHT = 16;
 
-export const MIN_GAME_WIDTH = 55 * TILE_WIDTH; // 400
-export const MIN_GAME_HEIGHT = 32 * TILE_HEIGHT; // 224
+export const MIN_GAME_WIDTH = 60 * TILE_WIDTH; // 400
+export const MIN_GAME_HEIGHT = 36 * TILE_HEIGHT; // 224
 
 export const RESIZE_THRESHOLD = 2500;
 export const RE_RESIZE_THRESHOLD = 45;

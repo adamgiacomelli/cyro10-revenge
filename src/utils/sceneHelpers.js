@@ -425,10 +425,10 @@ export const handleConfigureCamera = (scene) => {
         Math.max(scene.map.heightInPixels, game.scale.gameSize.height)
     );
 
-    camera.setPosition(
-        (game.scale.gameSize.width - scene.map.widthInPixels) / 2,
-        (game.scale.gameSize.height - scene.map.heightInPixels) / 2
-    );
+    // camera.setPosition(
+    //     (game.scale.gameSize.width - scene.map.widthInPixels) / 2,
+    //     (game.scale.gameSize.height - scene.map.heightInPixels) / 2
+    // );
 };
 
 export const handleCreateHeroAnimations = (scene) => {

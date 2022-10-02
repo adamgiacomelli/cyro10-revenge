@@ -156,6 +156,10 @@ export default class LoadAssetsScene extends Scene {
                 await asyncLoader(this.load.atlas(spriteName, imagePath, jsonPath));
             }
 
+            // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+            const { default: imagePath } = await import('!!file-loader!../../assets/images/stars_texture.png');
+            await asyncLoader(this.load.image('bg', imagePath));
+
             // Load objects assets
             const objectLayers = mapJson.layers.filter((layer) => layer.type === 'objectgroup');
             objectLayers.forEach((layer) => {
