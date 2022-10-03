@@ -154,7 +154,9 @@ export default class GameState {
 
               this.createIncident(scene);
           }
-          this.timeleft -= 1;
+          if (!this.paused) {
+              this.timeleft -= 1;
+          }
       }, 1000);
 
       scene.input.keyboard.on('keyup-SPACE', (event) => {
@@ -191,7 +193,16 @@ export default class GameState {
       const text = `${event.title}\n\n${event.description}`;
 
       scene.events.emit('showDialog', text);
+
       this.modifiers.oxygen[0].break(scene, 3);
+  }
+
+  pause() {
+      this.paused = true;
+  }
+
+  unpause() {
+      this.paused = false;
   }
 
   setupUi(scene) {
@@ -205,6 +216,8 @@ export default class GameState {
           scene.events.emit('showDialog', INTRO_TEXT_1);
       }
 
-      this.resourceState.fuel -= 0.00001 * delta;
+      if (!this.paused) {
+          this.resourceState.fuel -= 0.00001 * delta;
+      }
   }
 }

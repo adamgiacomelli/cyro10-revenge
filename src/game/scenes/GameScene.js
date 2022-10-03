@@ -69,6 +69,14 @@ export default class GameScene extends Scene {
       this.background.displayWidth = window.innerWidth + 200;
       this.background.displayHeight = window.innerHeight + 200;
       this.gameState = new GameState(this);
+
+      this.events.on('showDialog', (text) => {
+          this.gameState.pause();
+      }, this);
+
+      this.events.on('hideDialog', (text) => {
+          this.gameState.unpause();
+      }, this);
   }
 
   update(time, delta) {
