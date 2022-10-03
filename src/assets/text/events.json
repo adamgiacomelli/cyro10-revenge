@@ -22,7 +22,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Space worm from Nelron faimily bite the chunk of the hull close to power generator and damaged it.",
+    "description": "Space worm from Nelron faimily bite the chunk of the hull close\n to power generator and damaged it.",
     "modifiers": [
       {
         "power": -0.2
@@ -31,7 +31,7 @@
   },
   {
     "title": "Oxygen synthesisor damaged!",
-    "description": "Giant insect pierced hull powerful sonic waves and damaged Oxygen synthesisator!",
+    "description": "Giant insect pierced hull powerful sonic waves\n and damaged Oxygen synthesisator!",
     "modifiers": [
       {
         "oxygen": -0.1
@@ -43,7 +43,7 @@
   },
   {
     "title": "Fuel cell storage damaged!",
-    "description": "Space dinosaur-like crustacians Olk'ok got entagled in one of the thrusters with its razor-sharp leg-hair and damaged one of the thrusters.",
+    "description": "Space dinosaur-like crustacians Olk'ok got entagled\n in one of the thrusters with its razor-sharp leg-hair \n and damaged one of the thrusters.",
     "modifiers": [
       {
         "fuel": -0.2
@@ -55,7 +55,7 @@
   },
   {
     "title": "Oxygen synthesisator food farm damaged!",
-    "description": "A smooth skin species of space snake got thrugh ventilation shaft of oxygen synthesisator.",
+    "description": "A smooth skin species of space snake got thrugh ventilation\n shaft of oxygen synthesisator.",
     "modifiers": [
       {
         "food": -0.1
@@ -64,7 +64,7 @@
   },
   {
     "title": "Full cell storage damaged!",
-    "description": "Lurqoan space fly died and detached it's head and grew new body, carrying memories with them. However old carcas of Luruqoan hit fuel cell storage and there is major damage.",
+    "description": "Lurqoan space fly died and detached it's head and grew new body,\n carrying memories with them. However old carcas of Luruqoan\n   hit fuel cell storage and there is major damage.",
     "modifiers": [
       {
         "fuel": -0.1
@@ -73,7 +73,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Space urchin V'ooun with empathic abilities encoutered your ship, but despice being pacifistic and empatic it's alergic to red color and hit violently your bionic food farm and damagec nearly all crops.",
+    "description": "Space urchin V'ooun with empathic abilities encoutered your ship,\n but despice being pacifistic and empatic it's alergic to red color\n   and hit violently your bionic food farm and damagec nearly all crops.",
     "modifiers": [
       {
         "food": -0.1
@@ -88,7 +88,7 @@
   },
   {
     "title": "Oxygen synthesisator damaged!",
-    "description": "Carnivorous aliens who have acid for blood got in fight. Acid came onboard. Oxygen synthesisator contaminated. ",
+    "description": "Carnivorous aliens who have acid for blood got in fight.\n Acid came onboard. Oxygen synthesisator contaminated. ",
     "modifiers": [
       {
         "oxygen": -0.1
@@ -97,7 +97,7 @@
   },
   {
     "title": "Full cell storage damaged!",
-    "description": "Thruster re-ignitor failed and after some time broke down. Fuel is leaking at alarming rate.",
+    "description": "Thruster re-ignitor failed and after some time broke down.\n Fuel is leaking at alarming rate.",
     "modifiers": [
       {
         "fuel": -0.2
@@ -109,7 +109,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "A cat like species of Gattiris pierced power generator with it's sharp claws. Fix it quick!",
+    "description": "A cat like species of Gattiris pierced power generator\n with it's sharp claws. Fix it quick!",
     "modifiers": [
       {
         "power": -0.1
@@ -124,7 +124,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Space cloud damaged power core due to high pitched sonic vibrations.",
+    "description": "Space cloud damaged power core\n due to high pitched sonic vibrations.",
     "modifiers": [
       {
         "power": -0.1
@@ -133,7 +133,7 @@
   },
   {
     "title": "Full cell storage damaged!",
-    "description": "Va'reax arachnid species tore off one of the thrusters with it's giant legs. Major fuel leak! Fix it quickly!",
+    "description": "Va'reax arachnid species tore off one of the\n thrusters with it's giant legs. Major fuel leak! Fix it quickly!",
     "modifiers": [
       {
         "fuel": -0.1
@@ -172,7 +172,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Ancient worm Darois with telepathic abilities teleported to bionic food farm and ate most of the crops. Then it teleported out.",
+    "description": "Ancient worm Darois with telepathic abilities teleported to\n bionic food farm and ate most of the crops. Then it teleported out.",
     "modifiers": [
       {
         "food": -0.1
@@ -196,7 +196,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Dangerous space worms with infrared vision got attracted with heat produced by power generator core and made a dent in a hull and damaged power core.",
+    "description": "Dangerous space worms with infrared vision got attracted with\n   heat produced by power generator core\n   and made a dent in a hull and damaged power core.",
     "modifiers": [
       {
         "power": -0.1
@@ -208,7 +208,7 @@
   },
   {
     "title": "Oxygen synthesisator damaged!",
-    "description": "Sheet like creature with white skin clogged the space-air intake. Remove the creature quickly!",
+    "description": "Sheet like creature with white skin\n clogged the space-air intake. Remove the creature quickly!",
     "modifiers": [
       {
         "oxygen": -0.1
@@ -217,7 +217,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Elo-gex species of electric space bacteria somehow got to powercore and damaged it. ",
+    "description": "Elo-gex species of electric space bacteria\n somehow got to powercore and damaged it. ",
     "modifiers": [
       {
         "power": -0.1
@@ -226,7 +226,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Ustreax family of slimy crustacians with powerful jaws mistook bionic food farm smell for coffee and damaged bionic farm in the process. Fix the damage!",
+    "description": "Ustreax family of slimy crustacians with powerful\n jaws mistook bionic food farm smell for coffee\n   and damaged bionic farm in the process. Fix the damage!",
     "modifiers": [
       {
         "food": -0.1
@@ -238,7 +238,7 @@
   },
   {
     "title": "Full cell storage damaged!",
-    "description": "Nip'Tac brachiopod bit of piece of the ship hull and cause fuel leak, because it's thirst for thruster fumes. Am i lucky or what?!",
+    "description": "Nip'Tac brachiopod bit of piece of the ship hull\n and cause fuel leak, because it's thirst for thruster fumes. Am i lucky or what?!",
     "modifiers": [
       {
         "fuel": -0.2
@@ -250,7 +250,7 @@
   },
   {
     "title": "Oxygen synthesisator damaged!",
-    "description": "Giant blackhole nearly sucked spaceship in and despite not being even near the center violent shaking of spaceship still damaged oxygen pipe system and maybe also other systems.",
+    "description": "Giant blackhole nearly sucked spaceship in\n and despite not being even near the center violent shaking of spaceship\n   still damaged oxygen pipe system and maybe also other systems.",
     "modifiers": [
       {
         "power": -0.1,
@@ -261,7 +261,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Asteroid which we nearly avoided still scratched hull and kill most of the plants in bionic food farm.",
+    "description": "Asteroid which we nearly avoided still\n scratched hull and kill most of the plants in bionic food farm.",
     "modifiers": [
       {
         "fuel": -0.1
@@ -273,7 +273,7 @@
   },
   {
     "title": "Full cell storage damaged!",
-    "description": "We colided with ancient tardigrades Zayorin with dark skin and damaged one of the thrusters exaust pipe and part of oxygen production.",
+    "description": "We colided with ancient tardigrades Zayorin with dark skin\n and damaged one of the thrusters exaust pipe and part of oxygen production.",
     "modifiers": [
       {
         "oxygen": -0.1,
@@ -289,7 +289,7 @@
   },
   {
     "title": "Oxygen synthesisator damaged!",
-    "description": "Telis monkey-like specis with telescopic vision addicted with oxygen damaged oxygen synthesisator while trying to get the fix. It also knocked over fuel cell.",
+    "description": "Telis monkey-like specis with telescopic vision\n addicted with oxygen damaged oxygen synthesisator while trying to get the fix.\n   It also knocked over fuel cell.",
     "modifiers": [
       {
         "oxygen": -0.1,
@@ -299,7 +299,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Mahua subspecies of space moss somehow found way into the spaceship and made new home in your bionic food farm. If only it's farts wouldn't create vacuum and kill the plants. Fix it quick!",
+    "description": "Mahua subspecies of space moss somehow found way\n into the spaceship and made new home in your bionic food farm.\n   If only it's farts wouldn't create vacuum and kill the plants. Fix it quick!",
     "modifiers": [
       {
         "food": -0.1
@@ -311,7 +311,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Ur'sotus'Lo rodent-like parrot got attracted with it's own reflection from spaceship and damaged power generator in the process.",
+    "description": "Ur'sotus'Lo rodent-like parrot got attracted with \n it's own reflection from spaceship and damaged power generator in the process.",
     "modifiers": [
       {
         "power": -0.1
@@ -320,7 +320,7 @@
   },
   {
     "title": "Full cell storage damaged!",
-    "description": "Subspecies Stiri visually impared species of lizard with muscular abdomens and 4 eyelids breached the fuell cell storage. ",
+    "description": "Subspecies Stiri visually impared species of lizard\n with muscular abdomens and 4 eyelids breached the fuell cell storage. ",
     "modifiers": [
       {
         "fuel": -0.2
@@ -329,7 +329,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Sticky changelings who have giant molars. Their religion is having full stomach. Bionic food farm scavenged!",
+    "description": "Sticky changelings who have giant molars.\n Their religion is having full stomach. Bionic food farm scavenged!",
     "modifiers": [
       {
         "food": -0.1
@@ -338,7 +338,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Pij'Ou species of leeches with weak elbows ate all the food in bionic food farm, threw up the food and ate it again. It then evaporated. Clean up the mess and plant the crops.",
+    "description": "Pij'Ou species of leeches with weak elbows ate all the food\n   in bionic food farm, threw up the food and ate it again. It then evaporated.\n Clean up the mess and plant the crops.",
     "modifiers": [
       {
         "food": -0.05
@@ -359,7 +359,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Giant moth from Holulu subspecies caused solar flare and after-effect is damaged power core.",
+    "description": "Giant moth from Holulu subspecies caused\n solar flare and after-effect is damaged power core.",
     "modifiers": [
       {
         "fuel": -0.2
@@ -368,7 +368,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Hard shell turtle Feregex bit the chunk of the hull of spaceship, while trying to impress it's mate during annual mating. Major damage!",
+    "description": "Hard shell turtle Feregex bit the chunk of the hull of spaceship,\n while trying to impress it's mate during annual mating. Major damage!",
     "modifiers": [
       {
         "power": -0.1,
@@ -379,7 +379,7 @@
   },
   {
     "title": "Oxygen synthesisator damaged!",
-    "description": "Floating cyclope got in at least 4 of the oxygen pipes with its legs. It still has 23 legs left! We should pay attention and fix the pipes.",
+    "description": "Floating cyclope got in at least 4 of the oxygen pipes\n with its legs. It still has 23 legs left!\n   We should pay attention and fix the pipes.",
     "modifiers": [
       {
         "oxygen": -0.1
@@ -388,7 +388,7 @@
   },
   {
     "title": "Full cell storage damaged!",
-    "description": "Reep'Ar resembling a fish-bird like creature with scaled detachable tail got spooked by power generator humming and fled instantly leaving tail behind and damaging thrusters intake in the process.",
+    "description": "Reep'Ar resembling a fish-bird like creature\n with scaled detachable tail got spooked by power generator\n humming and fled instantly leaving tail behind\n and damaging thrusters intake in the process.",
     "modifiers": [
       {
         "fuel": -0.1
@@ -415,7 +415,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Hull DAMAGED! Short-sighted See'Gut species colided with mothership and damaged powergenerator.",
+    "description": "Hull DAMAGED! Short-sighted See'Gut species\n colided with mothership and damaged powergenerator.",
     "modifiers": [
       {
         "fuel": -0.1
@@ -427,7 +427,7 @@
   },
   {
     "title": "Power generator core damaged!",
-    "description": "Despite going extinct 127 years ago Odorala fish, managed to get electrocuted by powergenerator.",
+    "description": "Despite going extinct 127 years ago Odorala fish,\n managed to get electrocuted by powergenerator.",
     "modifiers": [
       {
         "power": -0.1
@@ -436,7 +436,7 @@
   },
   {
     "title": "Bionic food farm damaged!",
-    "description": "Treengi-Kra space-cow manage to destroy all the crops. Not sure how I missed the cow in bionic farm but it's expected because it never stops growing, but I have to fix it now and get rid of space-cow!",
+    "description": "Treengi-Kra space-cow manage to destroy all the crops.\n Not sure how I missed the cow in bionic farm but it's expected\n   because it never stops growing,\n   but I have to fix it now and get rid of space-cow!",
     "modifiers": [
       {
         "food": -0.02
