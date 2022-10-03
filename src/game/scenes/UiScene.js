@@ -25,7 +25,11 @@ export default class UiScene extends Scene {
 
       //  Listen for events from it
       gameScene.events.on('showDialog', (text) => {
-        this.showDialog(text);
+          this.showDialog(text);
+      }, this);
+
+      gameScene.events.on('hideDialog', (text) => {
+          this.hideDialog();
       }, this);
   }
 
@@ -68,25 +72,19 @@ export default class UiScene extends Scene {
       console.log('setupUI');
   }
 
-  showDialog(textArray) {
+  showDialog(text) {
+      console.log('show');
       this.dialogShown = true;
-
       this.box.setVisible(true);
       this.boxText.setVisible(true);
+      this.boxText.setText(text);
+  }
 
-      let index = 0;
-      this.boxText.setText(textArray[index]);
-
-      this.input.keyboard.on('keyup-SPACE', (event) => {
-          index += 1;
-          if (textArray.length > index) {
-              this.boxText.setText(textArray[index]);
-          } else {
-              this.box.setVisible(false);
-              this.boxText.setVisible(false);
-              this.dialogShown = false;
-          }
-      });
+  hideDialog() {
+      console.log('hide');
+      this.box.setVisible(false);
+      this.boxText.setVisible(false);
+      this.dialogShown = false;
   }
 
   getTimeText = (time) => {

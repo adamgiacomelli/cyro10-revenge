@@ -66,8 +66,8 @@ export default class GameScene extends Scene {
       handleCreateCharactersMovements(this);
 
       this.background = this.sys.add.image(0, 0, 'bg').setDepth(-5);
-      this.background.displayWidth = window.innerWidth+200;
-      this.background.displayHeight = window.innerHeight+200;
+      this.background.displayWidth = window.innerWidth + 200;
+      this.background.displayHeight = window.innerHeight + 200;
       this.gameState = new GameState(this);
   }
 

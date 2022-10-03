@@ -4,8 +4,8 @@ import { Input } from 'phaser';
 import { BROKEN_OBJECT_SPRITE_NAME, TILE_HEIGHT, TILE_WIDTH } from '../constants';
 import { createInteractiveGameObject } from './utils';
 
-import { INTRO_TEXT } from '../assets/text/intro_text';
 import EVENTS_LIST from '../assets/text/events.json';
+import { INTRO_TEXT_1, INTRO_TEXT_2, INTRO_TEXT_3 } from '../assets/text/intro_text';
 
 class Modifier {
     damage = 0
@@ -100,7 +100,12 @@ class Modifier {
     }
 }
 
-const INTRO_PHASE = 'INTRO_PHASE'; 
+const INTRO_PHASE = 'INTRO_PHASE';
+const INTRO_PHASE_2 = 'INTRO_PHASE_2';
+const INTRO_PHASE_3 = 'INTRO_PHASE_3';
+const INTRO_PHASE_4 = 'INTRO_PHASE_4';
+const INTRO_PHASE_FIN = 'INTRO_PHASE_FIN';
+
 export default class GameState {
   progress = INTRO_PHASE
 
@@ -151,14 +156,41 @@ export default class GameState {
           }
           this.timeleft -= 1;
       }, 1000);
+
+      scene.input.keyboard.on('keyup-SPACE', (event) => {
+          console.log(this.progress);
+          switch (this.progress) {
+              case INTRO_PHASE_2:
+                  this.progress = INTRO_PHASE_3;
+
+                  scene.events.emit('showDialog', INTRO_TEXT_2);
+                  break;
+              case INTRO_PHASE_3:
+                  this.progress = INTRO_PHASE_4;
+
+                  scene.events.emit('showDialog', INTRO_TEXT_3);
+                  break;
+              case INTRO_PHASE_4:
+                  this.progress = INTRO_PHASE_FIN;
+
+                  scene.events.emit('hideDialog');
+                  break;
+
+              default:
+                  scene.events.emit('hideDialog');
+
+                  break;
+          }
+      });
   }
 
   createIncident(scene) {
-      const random = Math.floor(Math.random() * EVENTS_LIST.length());
+      const random = Math.floor(Math.random() * EVENTS_LIST.length);
       const event = EVENTS_LIST[random];
 
-      scene.events.emit('showDialog', [`${event.title}\n\n${event.description}`]);
+      const text = `${event.title}\n\n${event.description}`;
 
+      scene.events.emit('showDialog', text);
       this.modifiers.oxygen[0].break(scene, 3);
   }
 
@@ -169,7 +201,8 @@ export default class GameState {
 
   update(scene, time, delta) {
       if (this.progress === INTRO_PHASE) {
-          scene.events.emit('showDialog', INTRO_TEXT);
+          this.progress = INTRO_PHASE_2;
+          scene.events.emit('showDialog', INTRO_TEXT_1);
       }
 
       this.resourceState.fuel -= 0.00001 * delta;
