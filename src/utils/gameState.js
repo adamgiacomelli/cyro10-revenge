@@ -196,6 +196,7 @@ export default class GameState {
       const text = `${event.title}\n\n${event.description}`;
 
       scene.events.emit('showDialog', text);
+      scene.problemSound.play();
       event.modifiers.forEach((mod) => {
           const key = Object.keys(mod)[0];
           const randomMod = Math.floor(Math.random() * this.modifiers[key].length);

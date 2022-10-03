@@ -29,13 +29,13 @@ export default class GameScene extends Scene {
       super('GameScene');
   }
 
-  preload() {
-
-  }
+  preload() {}
 
   create() {
       const music = this.sound.add('theme');
       music.play();
+
+      this.problemSound = this.sound.add('problem');
 
       const dispatch = getDispatch();
 

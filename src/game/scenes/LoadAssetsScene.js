@@ -166,6 +166,12 @@ export default class LoadAssetsScene extends Scene {
                 filePath,
             ]));
 
+            // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+            const { default: effectPath } = await import('!!file-loader!../../assets/audio/problem.mp3');
+            await asyncLoader(this.load.audio('problem', [
+                effectPath,
+            ]));
+
             // Load objects assets
             const objectLayers = mapJson.layers.filter((layer) => layer.type === 'objectgroup');
             objectLayers.forEach((layer) => {
