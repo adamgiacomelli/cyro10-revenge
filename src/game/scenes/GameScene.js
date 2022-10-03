@@ -29,7 +29,14 @@ export default class GameScene extends Scene {
       super('GameScene');
   }
 
+  preload() {
+
+  }
+
   create() {
+      const music = this.sound.add('theme');
+      music.play();
+
       const dispatch = getDispatch();
 
       // All of these functions need to be called in order

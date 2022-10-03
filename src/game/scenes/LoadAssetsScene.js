@@ -160,6 +160,12 @@ export default class LoadAssetsScene extends Scene {
             const { default: imagePath } = await import('!!file-loader!../../assets/images/stars_texture.png');
             await asyncLoader(this.load.image('bg', imagePath));
 
+            // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+            const { default: filePath } = await import('!!file-loader!../../assets/audio/zerotime.mp3');
+            await asyncLoader(this.load.audio('theme', [
+                filePath,
+            ]));
+
             // Load objects assets
             const objectLayers = mapJson.layers.filter((layer) => layer.type === 'objectgroup');
             objectLayers.forEach((layer) => {

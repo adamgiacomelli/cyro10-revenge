@@ -11,6 +11,8 @@ carbohydrates, and nucleic acids. And lastly infusing memory,
 sense, perception and Um.
 
 F5 to restart
+
+Made by Adam Giacomelli & Andraž Novak
 `;
 
 export const WIN_TEXT = `
@@ -18,4 +20,7 @@ Breaking news reads:
 Last of GLifeform Laboratories inc. employees disappear mysteriously. 
 
 Thank ZeroTime.
+
+F5 to restart
+Made by Adam Giacomelli & Andraž Novak
 `;
