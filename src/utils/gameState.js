@@ -5,6 +5,8 @@ import { BROKEN_OBJECT_SPRITE_NAME, TILE_HEIGHT, TILE_WIDTH } from '../constants
 import { createInteractiveGameObject } from './utils';
 
 import EVENTS_LIST from '../assets/text/events.json';
+import COORDINATES from '../assets/text/coordinates.json';
+
 import { INTRO_TEXT_1, INTRO_TEXT_2, INTRO_TEXT_3 } from '../assets/text/intro_text';
 
 class Modifier {
@@ -117,10 +119,10 @@ export default class GameState {
   };
 
   modifiers = {
-      oxygen: [{ x: 32, y: 17 }, { x: 32, y: 20 }],
-      power: [{ x: 5, y: 18 }],
-      fuel: [{ x: 17, y: 24 }, { x: 18, y: 24 }, { x: 18, y: 23 }, { x: 18, y: 24 }],
-      food: [{ x: 11, y: 9 }, { x: 12, y: 9 }, { x: 13, y: 9 }, { x: 11, y: 10 }, { x: 12, y: 10 }, { x: 13, y: 10 }],
+      oxygen: [],
+      power: [],
+      fuel: [],
+      food: [],
   };
 
   timeleft = 10;
@@ -135,17 +137,12 @@ export default class GameState {
           fuel: 100,
       };
 
-      this.modifiers.oxygen.forEach((part, idx, arr) => {
-          arr[idx] = new Modifier(scene, part);
-      });
-      this.modifiers.food.forEach((part, idx, arr) => {
-          arr[idx] = new Modifier(scene, part);
-      });
-      this.modifiers.fuel.forEach((part, idx, arr) => {
-          arr[idx] = new Modifier(scene, part);
-      });
-      this.modifiers.power.forEach((part, idx, arr) => {
-          arr[idx] = new Modifier(scene, part);
+      COORDINATES.forEach((e) => {
+          e.coordinates.forEach((coord) => {
+              const pos = coord.pos.split(',');
+              const position = { x: Number.parseInt(pos[0], 10) + 11, y: Number.parseInt(pos[1], 10) };
+              this.modifiers[e.type].push(new Modifier(scene, position));
+          });
       });
 
       setInterval(() => {
@@ -193,8 +190,11 @@ export default class GameState {
       const text = `${event.title}\n\n${event.description}`;
 
       scene.events.emit('showDialog', text);
-
-      this.modifiers.oxygen[0].break(scene, 3);
+      event.modifiers.forEach((mod) => {
+          const key = Object.keys(mod)[0];
+          const randomMod = Math.floor(Math.random() * this.modifiers[key].length);
+          this.modifiers[key][randomMod].break(scene, 1);
+      });
   }
 
   pause() {
@@ -210,6 +210,14 @@ export default class GameState {
       this.uiScene.scene.start();
   }
 
+  reduceResourceByDamaged(type, delta) {
+      this.modifiers[type].forEach((mod) => {
+          if (!mod.isFixed()) {
+              this.resourceState[type] -= 0.0001 * delta * mod.damage;
+          }
+      });
+  }
+
   update(scene, time, delta) {
       if (this.progress === INTRO_PHASE) {
           this.progress = INTRO_PHASE_2;
@@ -218,6 +226,10 @@ export default class GameState {
 
       if (!this.paused) {
           this.resourceState.fuel -= 0.00001 * delta;
+          this.reduceResourceByDamaged('oxygen', delta);
+          this.reduceResourceByDamaged('fuel', delta);
+          this.reduceResourceByDamaged('food', delta);
+          this.reduceResourceByDamaged('power', delta);
       }
   }
 }
