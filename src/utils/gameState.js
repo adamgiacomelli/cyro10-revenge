@@ -8,6 +8,7 @@ import EVENTS_LIST from '../assets/text/events.json';
 import COORDINATES from '../assets/text/coordinates.json';
 
 import { INTRO_TEXT_1, INTRO_TEXT_2, INTRO_TEXT_3 } from '../assets/text/intro_text';
+import { LOSE_TEXT, WIN_TEXT } from '../assets/text/end_text';
 
 class Modifier {
     damage = 0
@@ -126,6 +127,7 @@ export default class GameState {
   };
 
   timeleft = 10;
+  total_time = 400;
 
   constructor(scene) {
       this.setupUi(scene);
@@ -153,6 +155,10 @@ export default class GameState {
           }
           if (!this.paused) {
               this.timeleft -= 1;
+              this.total_time -= 1;
+              if (this.total_time === 0) {
+                  scene.events.emit('showDialog', WIN_TEXT, false);
+              }
           }
       }, 1000);
 
@@ -210,10 +216,13 @@ export default class GameState {
       this.uiScene.scene.start();
   }
 
-  reduceResourceByDamaged(type, delta) {
+  reduceResourceByDamaged(type, delta, scene) {
       this.modifiers[type].forEach((mod) => {
           if (!mod.isFixed()) {
-              this.resourceState[type] -= 0.0001 * delta * mod.damage;
+              this.resourceState[type] -= 0.001 * delta * mod.damage;
+              if (this.resourceState[type] < 0) {
+                  scene.events.emit('showDialog', LOSE_TEXT, false);
+              }
           }
       });
   }
@@ -226,10 +235,10 @@ export default class GameState {
 
       if (!this.paused) {
           this.resourceState.fuel -= 0.00001 * delta;
-          this.reduceResourceByDamaged('oxygen', delta);
-          this.reduceResourceByDamaged('fuel', delta);
-          this.reduceResourceByDamaged('food', delta);
-          this.reduceResourceByDamaged('power', delta);
+          this.reduceResourceByDamaged('oxygen', delta, scene);
+          this.reduceResourceByDamaged('fuel', delta, scene);
+          this.reduceResourceByDamaged('food', delta, scene);
+          this.reduceResourceByDamaged('power', delta, scene);
       }
   }
 }

@@ -23,6 +23,7 @@ import GameState from '../../utils/gameState';
 
 export default class GameScene extends Scene {
   gameState = null;
+  end = false;
 
   constructor() {
       super('GameScene');
@@ -70,12 +71,15 @@ export default class GameScene extends Scene {
       this.background.displayHeight = window.innerHeight + 200;
       this.gameState = new GameState(this);
 
-      this.events.on('showDialog', (text) => {
+      this.events.on('showDialog', (text, end) => {
+          if (end === true) this.end = true;
           this.gameState.pause();
       }, this);
 
-      this.events.on('hideDialog', (text) => {
-          this.gameState.unpause();
+      this.events.on('hideDialog', (text, pause) => {
+          if (this.end === false) {
+              this.gameState.unpause();
+          }
       }, this);
   }
 

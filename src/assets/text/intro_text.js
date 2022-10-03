@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export const INTRO_TEXT_1 = 
+export const INTRO_TEXT_1 =
 `INTRO
 I was an ophan living in an ophanage. Rumor had it once you turn 14 
 you're taken away never to be seen again.
@@ -18,7 +18,7 @@ every day we could see people being taken away in bags out of
 lab area.
 
 We didn't know where they were taken.
-`
+`;
 
 export const INTRO_TEXT_2 = `
 One stormy night my cellmate broke free from lab and tried me
@@ -26,41 +26,53 @@ free out of our cell. Clearly weakened from all the experiments
 but he still managed to free me. He had a plan. 
 Earlier that month his fellow prisoner got hold of blueprints of
 subterrain pipes. 
-That was our route to escape. As if fate would had other plans, right before I managed to
-get a clear glimpse of guard silhouette I heard high-pitched whirring, then light.
-The sound was deafening, it seemed like it was coming from within me. As the sound was
-getting louder and louder I felt more and more excruciating pain all over my body. Few
-moments later my memory went blank. I can't recollect any specific details as my memory 
+That was our route to escape. As if fate would had other plans,
+right before I managed to get a clear glimpse of guard silhouette
+I heard high-pitched whirring, then light. The sound was deafening,
+it seemed like it was coming from within me. As the sound was
+getting louder and louder I felt more and more excruciating
+ pain all over my body. Few moments later my memory went blank.
+I can't recollect any specific details as my memory 
 is blurry, but I can remember distinct high-pitched whirring. 
 
-I closed my eyes, saw vivid bright colours despite having my eyed closed shut. An instant 
-later I felt immense force sucking me into some sort of vortex. 
+I closed my eyes, saw vivid bright colours 
+despite having my eyed closed shut. An instant later I felt 
+immense force sucking me into some sort of vortex. 
 
-I woke up on what seems to be spaceship and I heard faint, yet distinct high-pitched whirring.
- It's the same as it was on the day of my escape. It has to be somehow connected to vortex. 
-My body wa weak and I couldn't spent standing on my feet for more than a few minutes.
-`
+I woke up on what seems to be spaceship and I heard faint,
+yet distinct high-pitched whirring. It's the same as it was
+on the day of my escape. It has to be somehow connected to vortex. 
+My body was weak and I couldn't spent standing on my feet
+for more than a few minutes.
+`;
 
 export const INTRO_TEXT_3 = `
-Day 1057. I spend my days listening to my genetic lifeform companion. I'm actually not sure what
-it is and where it lives, but at this point I don't even care anymore.
-It shared all the information I need to get back in time and get my revenge. Only thing keeping me
-sane between repairing the damage caused by space monsters, debris and rabmlings of my genetic 
-lifeform compnion is my resolve to get revenge.
+Day 1057. I spend my days listening to my 
+genetic lifeform companion. I'm actually not sure what
+it is and where it lives, but at this point 
+I don't even care anymore.
+It shared all the information I need to get back in time
+and get my revenge. Only thing keeping me sane between repairing
+the damage caused by space monsters, debris and rabmlings 
+of my genetic lifeform compnion is my resolve to get revenge.
 
-Day 2008. It seemed like my genetic lifeform companion got drunk on thruster fumes and started 
-mumbling about ZeroTime. 
+Day 2008. It seemed like my genetic lifeform companion
+got drunk on thruster fumes and started mumbling about ZeroTime. 
 
-Day 2009. Breaktrough. Yesterday in drunken episode my genetic lifeform companion shared details 
-about ZeroTime. I can't explain it at all, but all I know it's once in a 24 year celestial phenomenon 
-which is allowing me timetravel. Good thing I have it recorded on MemoPad.
+Day 2009. Breaktrough. Yesterday in drunken episode
+my genetic lifeform companion shared details about ZeroTime.
+I can't explain it at all, but all I know
+it's once in a 24 year celestial phenomenon. 
+which is allowing me timetravel. 
+Good thing I have it recorded on MemoPad.
 
-The vast space before my eyes is leaving me breathless every time. It has now been years since my 
-captives experimented on me. ZeroTime is quickly appraching.
+The vast space before my eyes is leaving me breathless every time.
+It has now been years since my captives experimented on me.
+ZeroTime is quickly appraching.
 `;
 
 export const INTRO_TEXT = [
     INTRO_TEXT_1,
     INTRO_TEXT_2,
-    INTRO_TEXT_3
-]
+    INTRO_TEXT_3,
+];

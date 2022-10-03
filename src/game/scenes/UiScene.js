@@ -88,7 +88,7 @@ export default class UiScene extends Scene {
   }
 
   getTimeText = (time) => {
-      const timetxt = `Stardate ${new Date(time + START_TIME).toLocaleString()}`;
+      const timetxt = `Until destination: ${time}`;
       return timetxt;
   };
 
@@ -105,7 +105,7 @@ export default class UiScene extends Scene {
       const gameScene = this.scene.get('GameScene');
 
       this.hud.resources.setText(this.getHudText(gameScene.gameState));
-      this.hud.timedate.setText(this.getTimeText(time));
+      this.hud.timedate.setText(this.getTimeText(gameScene.gameState.total_time));
 
       this.hud.timerText.setText(`Next problem in ${gameScene.gameState.timeleft}`);
   }
